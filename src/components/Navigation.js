@@ -5,7 +5,7 @@ const NavItem = props => {
     const liClassName = (props.path === pageURI) ? "nav-item active" : "nav-item";
     const aClassName = props.disabled ? "nav-link disabled" : "nav-link";
     return (
-        <li className={liClassName}>
+    <li className={liClassName}>
         <a className={aClassName} href={props.path}>{props.name}</a>
     </li>
     ); 
@@ -31,7 +31,7 @@ class NavDropDown extends React.Component {
         return (
             <li className="nav-item dropdown">
                 <a className="nav-link dropdown-toggle" href="/" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"
-                   onClick={(e)=>{this.showDropdown(e)}}>
+                   onClick={e=>this.showDropdown(e)}>
                 {this.props.name}
                 </a>
                 <div className={classDropdownMenu} aria-labelledby="navbarDropdown">

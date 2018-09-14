@@ -1,13 +1,23 @@
-import React, { Component } from 'react';
+import React, { Component} from 'react';
 import './App.css';
-import Navigation from './components/Navigation';
+import Game from '../src/components/Game'
+
+/*
+lodash
+mathjs
+date-fns
+collectjs
+chancejs
+chartjs
+immutable
+*/
 
 class App extends Component {
   render() {
     return (
       <div className="container">
-      <Navigation/>
-      <h1>Todo</h1>
+      <h1>Play</h1>
+      <Game/>
       </div>
     );
   }
