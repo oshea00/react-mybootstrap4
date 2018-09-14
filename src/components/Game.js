@@ -87,12 +87,12 @@ class Game extends React.Component {
     render() {
         return (
             <div className="game row">
-                <div className="board col-sm">
+                <div className="board col-sm-4">
                     <Board 
                         play={this.state.history[this.state.currMove]} 
                         onClick={e=>this.markSquare(e)}/>
                 </div>
-                <div className="game-info col-sm">
+                <div className="game-info col-sm-4">
                     <div>{/* status */}</div>
                     <ol>
                     {

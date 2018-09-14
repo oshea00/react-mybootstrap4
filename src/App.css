@@ -1,13 +1,15 @@
 .board {
-    height: 230px;
+    height: 210px;
     width: 200px;
     background: #34d873;
+    align-content: center;
 }
 
 .square {
     height: 50px;
     width: 50px;
     margin: 3px;
+    background: #f5ecb8;
 }
 
 .game-info {
