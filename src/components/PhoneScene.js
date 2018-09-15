@@ -20,9 +20,6 @@ class PhoneScene extends React.Component {
     // a data structure describing the scene (like a tree!)
     // - then build/render it here.
     componentDidMount() {
-        function renderPhone() {
-            renderer.render(scene,camera);
-        }
         const THREE = window.THREE;
         const scene = new THREE.Scene();
         scene.background = new THREE.Color(0x222222);
@@ -37,22 +34,6 @@ class PhoneScene extends React.Component {
             1000
         );
         camera.position.set(-5,12,10);
-
-        const animate = ()=> {
-            requestAnimationFrame(animate);
-            controls.update();
-        };
-
-        // CONTROLS
-        const controls = new THREE.TrackballControls(camera);
-        controls.rotateSpeed = 5.0;
-        controls.zoomSpeed = 3.2;
-        controls.panSpeed = 0.8;
-        controls.noZoom = false;
-        controls.noPan = false;
-        controls.staticMoving = false;
-        controls.dynaicDampingFactor = 0.2;
-        controls.addEventListener('change',renderPhone);
 
         // Create and add scene objects *** BEGIN
         // GLOBE
@@ -69,22 +50,42 @@ class PhoneScene extends React.Component {
         var axisHelper = new THREE.AxesHelper(1.25);
         scene.add(axisHelper);
 
-        var dae;
-        var loader = new THREE.ColladaLoader();
+        const renderPhone = ()=> {
+            renderer.render(scene,camera);
+        }
 
         const loadScene = (collada) => {
-            dae = collada.scene;
+            const dae = collada.scene;
             dae.position.set(0.4,0,0.8);
             scene.add(dae);
             renderPhone();
         }
 
+        var loader = new THREE.ColladaLoader();
+        // loader.load('https://s3-us-west-2.amazonaws.com/s.cdpn.io/392/iphone6.dae',loadScene);
         loader.load('model.dae',loadScene);
+
         // *** END
+
+        // CONTROLS
+        const controls = new THREE.TrackballControls(camera);
+        controls.rotateSpeed = 5.0;
+        controls.zoomSpeed = 3.2;
+        controls.panSpeed = 0.8;
+        controls.noZoom = false;
+        controls.noPan = false;
+        controls.staticMoving = false;
+        controls.dynaicDampingFactor = 0.2;
+        controls.addEventListener('change',renderPhone);
 
         // append renderer as child to
         // our scene div...
         this.container.appendChild(renderer.domElement);
+
+        const animate = ()=> {
+            requestAnimationFrame(animate);
+            controls.update();
+        };
 
         // start scene render animation
         animate();

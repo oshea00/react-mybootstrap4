@@ -3,7 +3,8 @@ import './App.css';
 // import Game from '../src/components/Game'
 // import Navigation from './components/Navigation';
 // import ThreeJsScene from './components/ThreeJsScene';
-import PhoneScene from './components/PhoneScene';
+// import PhoneScene from './components/PhoneScene';
+import FocusedForm from './components/Focusable'
 
 /*
 lodash
@@ -19,8 +20,8 @@ class App extends Component {
   render() {
     return (
       <div className="container">
-      <h1>Three.js Scene</h1>
-      <PhoneScene height="800" width="600"/>
+      <h1>Form Stuff</h1>
+      <FocusedForm/>
       </div>
     );
   }
