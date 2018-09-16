@@ -10,6 +10,11 @@ class FocusedForm extends React.Component {
         this.fieldRef.current.focus();
     }
 
+    handleClick(e) {
+        e.preventDefault();
+        console.log('clicked!');
+    }
+
     handleSubmit(e) {
         e.preventDefault();
         console.log(this.fieldRef.current.value);
@@ -17,11 +22,13 @@ class FocusedForm extends React.Component {
 
     render() {
         return (
+            <div>
             <form onSubmit={e=>this.handleSubmit(e)}>
                 <label htmlFor="name">Name:</label>
-                <input id="name" type="text" placeholder="Name" ref={this.fieldRef}/> 
-                <button type="submit">GO</button>
+                <input id="name" type="text" ref={this.fieldRef}/> 
             </form>
+            <a onClick={(e)=>this.handleClick(e)} >Click Me</a>
+            </div>
         );
     }
 }

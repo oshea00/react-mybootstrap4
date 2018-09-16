@@ -4,7 +4,8 @@ import './App.css';
 // import Navigation from './components/Navigation';
 // import ThreeJsScene from './components/ThreeJsScene';
 // import PhoneScene from './components/PhoneScene';
-import FocusedForm from './components/Focusable'
+// import FocusedForm from './components/Focusable'
+import Treechart, {DomTree} from './components/Treechart'
 
 /*
 lodash
@@ -18,10 +19,16 @@ immutable
 
 class App extends Component {
   render() {
+
     return (
       <div className="container">
-      <h1>Form Stuff</h1>
-      <FocusedForm/>
+      <Treechart 
+        height="300" 
+        width="800" 
+        title="Fig 1 - Introspecting the DOM." 
+        data={DomTree}
+        dataId="body"
+        maxDepth="10"/>
       </div>
     );
   }
